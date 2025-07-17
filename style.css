@@ -1,0 +1,181 @@
+body {
+    background-color: #f8f9fa;
+    padding-bottom: 2rem;
+}
+
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 0.75rem;
+}
+
+/* IP来源信息样式 */
+.ip-source {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.qrcode-container {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+.info-table {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.table th {
+    width: 30%;
+    background-color: #f8f9fa;
+    font-size: 0.85rem;
+}
+
+.table td {
+    font-size: 0.85rem;
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .card {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+}
+
+.display-password {
+    font-family: monospace;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+}
+
+/* 操作按钮容器样式 */
+.action-buttons-container {
+    position: relative;
+    z-index: 100;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+.action-buttons-container::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 15px 15px 15px;
+    border-style: solid;
+    border-color: transparent transparent #f8f9fa transparent;
+    filter: drop-shadow(0 -2px 2px rgba(0, 0, 0, 0.1));
+}
+
+.action-buttons-container .btn {
+    min-width: 180px;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+.action-buttons-container .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 批量生成相关样式 */
+#resultContainer {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.result-card {
+    flex: 0 0 calc(33.333% - 15px);
+    max-width: calc(33.333% - 15px);
+    margin-bottom: 15px;
+    break-inside: avoid;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+    .result-card {
+        flex: 0 0 calc(50% - 15px);
+        max-width: calc(50% - 15px);
+    }
+}
+
+@media (max-width: 768px) {
+    .result-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .action-buttons-container .btn {
+        min-width: 140px;
+        margin-bottom: 10px;
+    }
+}
+
+@media print {
+    .result-card {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        flex: 0 0 calc(50% - 15px);
+        max-width: calc(50% - 15px);
+    }
+    
+    .no-print, .action-buttons-container {
+        display: none !important;
+    }
+}
+
+/* 打印所有二维码的按钮 */
+.print-all-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* 加载中动画 */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+} 
